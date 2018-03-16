@@ -99,4 +99,19 @@ public class BoardShould {
         
         assertTrue(board.hasWinner());
     }
+
+    @Test public void
+    check_draw_condition() throws IllegalSymbolException, IllegalPositionException {
+        board.place("X", 0);
+        board.place("O", 1);
+        board.place("X", 2);
+        board.place("O", 3);
+        board.place("X", 4);
+        board.place("O", 5);
+        board.place("O", 6);
+        board.place("X", 7);
+        board.place("O", 8);
+
+        assertTrue(board.hasDraw());
+    }
 }

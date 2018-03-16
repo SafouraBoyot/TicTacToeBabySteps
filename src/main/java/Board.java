@@ -80,4 +80,13 @@ public class Board {
         return !board.get(0).equals("") && !board.get(4).equals("") && !board.get(8).equals("") && (board.get(0).equals(board.get(4)) && board.get(4).equals(board.get(8)))
                 || !board.get(2).equals("") && !board.get(4).equals("") && !board.get(6).equals("") && (board.get(2).equals(board.get(4)) && board.get(4).equals(board.get(6)));
     }
+
+    public boolean hasDraw() {
+        for (String position: board ) {
+            if(position.equals(""))
+                return false;
+        }
+        return true;
+
+    }
 }
