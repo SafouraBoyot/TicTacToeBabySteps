@@ -31,10 +31,18 @@ public class BoardShould {
 
 
     @Test public void
-    alternate_symbos() throws IllegalSymbolException {
+    alternate_symbols() throws IllegalSymbolException {
         Board board =new Board();
         board.place("X",1);
 
         assertEquals("O",board.nextPlayer());
+    }
+
+    @Test(expected = IllegalPositionException.class) public void
+    not_allow_a_play_on_a_played_position() throws IllegalSymbolException {
+        Board board = new Board();
+
+        board.place("X", 0);
+        board.place(board.nextPlayer(), 0);
     }
 }
