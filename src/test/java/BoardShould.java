@@ -25,6 +25,16 @@ public class BoardShould {
     place_O_as_a_first_player() throws IllegalSymbolException {
         Board board = new Board();
 
+
         board.place("O", 0);
+    }
+
+
+    @Test public void
+    alternate_symbos() throws IllegalSymbolException {
+        Board board =new Board();
+        board.place("X",1);
+
+        assertEquals("O",board.nextPlayer());
     }
 }

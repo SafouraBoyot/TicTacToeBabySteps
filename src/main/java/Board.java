@@ -4,10 +4,12 @@ import java.util.List;
 
 public class Board {
     private List<String> board = new ArrayList<>();
+    private String symbol;
 
     public Board() {
+        this.symbol = "";
         for (int i = 0; i < 9; i++) {
-            board.add("");
+            board.add(symbol);
         }
     }
 
@@ -16,7 +18,7 @@ public class Board {
     }
 
     public void place(String symbol, int position) throws IllegalSymbolException {
-
+        this.symbol = symbol;
         if (hasNoSymbol() && symbol == "O")
             throw new IllegalSymbolException();
 
@@ -48,5 +50,10 @@ public class Board {
     @Override
     public int hashCode() {
         return board != null ? board.hashCode() : 0;
+    }
+
+    public String nextPlayer() {
+        if (symbol == "X") return "O";
+        else return "X";
     }
 }
