@@ -1,9 +1,10 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class Board {
-    private List<String> board = new ArrayList<>();
+    private final List<String> board = new ArrayList<>();
     private String symbol;
 
     public Board() {
@@ -22,12 +23,13 @@ public class Board {
         if (hasNoSymbol() && symbol == "O")
             throw new IllegalSymbolException();
         if (board.get(position) != "") throw new IllegalPositionException();
-        board.add(position, symbol);
+        board.set(position, symbol);
     }
 
 
     public List<String> board() {
-        return board;
+
+        return Collections.unmodifiableList(board);
     }
 
     private boolean hasNoSymbol() {
@@ -82,6 +84,12 @@ public class Board {
     }
 
     public boolean hasDraw() {
-        return false;
+
+        for (String position: board) {
+            if(position.equals(""))
+                return false;
+        }
+        return true;
+
     }
 }
