@@ -57,4 +57,8 @@ public class Board {
         if (symbol == "X") return "O";
         else return "X";
     }
+
+    public boolean hasWinner() {
+        return board.get(0).equals(board.get(1)) && board.get(1).equals(board.get(2));
+    }
 }
