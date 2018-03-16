@@ -12,7 +12,7 @@ public class BoardShould {
 
     @Test
     public void
-    place_a_symbol_on_the_board() {
+    place_a_symbol_on_the_board() throws IllegalSymbolException {
         Board board = new Board();
 
         board.place("X", 0);
@@ -22,12 +22,9 @@ public class BoardShould {
 
     @Test(expected = IllegalSymbolException.class)
     public void
-    place_O_as_a_first_player() {
-
+    place_O_as_a_first_player() throws IllegalSymbolException {
         Board board = new Board();
 
         board.place("O", 0);
-
-
     }
 }
