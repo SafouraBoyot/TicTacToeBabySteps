@@ -6,14 +6,16 @@ public class TicTacToeShould {
     @Test
     public void
     return_game_status(){
-        TicTacToe ticTacToe = new TicTacToe();
+        Board board = new Board();
+        TicTacToe ticTacToe = new TicTacToe(board);
         assertEquals(GameStatus.INPROGRESS,ticTacToe.gameStatus());
     }
 
     @Test
     public void
-    return_game_status_if_game_is_finished(){
-        TicTacToe ticTacToe = new TicTacToe();
+    return_game_status_if_game_is_finished_with_winner() throws IllegalSymbolException, IllegalPositionException {
+        Board board = new Board();
+        TicTacToe ticTacToe = new TicTacToe(board);
 
         ticTacToe.play(0);
         ticTacToe.play(3);
