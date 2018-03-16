@@ -1,9 +1,12 @@
+import junitparams.JUnitParamsRunner;
+import junitparams.Parameters;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-
+@RunWith(JUnitParamsRunner.class)
 public class BoardShould {
     private Board board;
 
@@ -75,11 +78,13 @@ public class BoardShould {
         assertTrue(board.hasWinner());
     }
 
-    @Test public void
-    check_winning_first_vertical_conditions() throws IllegalSymbolException, IllegalPositionException {
-        board.place("X", 0);
-        board.place("X", 3);
-        board.place("X", 6);
+    @Test
+    @Parameters({"0, 3 ,6"})
+    public void
+    check_winning_first_vertical_conditions(int one,int two,int three) throws IllegalSymbolException, IllegalPositionException {
+        board.place("X", one);
+        board.place("X", two);
+        board.place("X", three);
 
         assertTrue(board.hasWinner());
     }

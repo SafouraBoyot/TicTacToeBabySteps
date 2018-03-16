@@ -59,12 +59,19 @@ public class Board {
     }
 
     public boolean hasWinner() {
-        return checkHorizontalWinConditions();
+        return checkHorizontalWinConditions()
+                ||checkVerticalWinConditions();
     }
 
     private boolean checkHorizontalWinConditions() {
         return !board.get(0).equals("") && !board.get(1).equals("") && !board.get(2).equals("") && (board.get(0).equals(board.get(1)) && board.get(1).equals(board.get(2)))
                 || !board.get(3).equals("") && !board.get(4).equals("") && !board.get(5).equals("") && (board.get(3).equals(board.get(4)) && board.get(4).equals(board.get(5)))
                 || !board.get(6).equals("") && !board.get(7).equals("") && !board.get(8).equals("") && (board.get(6).equals(board.get(7)) && board.get(7).equals(board.get(8)));
+    }
+
+    private boolean checkVerticalWinConditions() {
+        return !board.get(0).equals("") && !board.get(3).equals("") && !board.get(6).equals("") && (board.get(0).equals(board.get(3)) && board.get(3).equals(board.get(6)))
+                || !board.get(1).equals("") && !board.get(4).equals("") && !board.get(7).equals("") && (board.get(1).equals(board.get(4)) && board.get(4).equals(board.get(7)))
+                || !board.get(2).equals("") && !board.get(5).equals("") && !board.get(8).equals("") && (board.get(2).equals(board.get(5)) && board.get(5).equals(board.get(8)));
     }
 }
