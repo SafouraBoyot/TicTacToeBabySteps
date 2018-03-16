@@ -17,7 +17,7 @@ public class BoardShould {
 
         board.place("X", 0);
 
-        assertEquals("X", board.board()[0]);
+        assertEquals("X", board.board().get(0));
     }
 
     @Test(expected = IllegalSymbolException.class)
