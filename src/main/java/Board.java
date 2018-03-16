@@ -21,7 +21,7 @@ public class Board {
         this.symbol = symbol;
         if (hasNoSymbol() && symbol == "O")
             throw new IllegalSymbolException();
-        if(board.get(position)!="") throw new IllegalPositionException();
+        if (board.get(position) != "") throw new IllegalPositionException();
         board.add(position, symbol);
     }
 
@@ -59,6 +59,8 @@ public class Board {
     }
 
     public boolean hasWinner() {
-        return board.get(0).equals(board.get(1)) && board.get(1).equals(board.get(2));
+
+        return !board.get(0).equals("") && !board.get(1).equals("") && !board.get(2).equals("") && (board.get(0).equals(board.get(1)) && board.get(1).equals(board.get(2)))
+                || !board.get(3).equals("") && !board.get(4).equals("") && !board.get(5).equals("") && (board.get(3).equals(board.get(4)) && board.get(4).equals(board.get(5)));
     }
 }
