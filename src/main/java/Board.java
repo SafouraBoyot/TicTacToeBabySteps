@@ -82,10 +82,12 @@ public class Board {
     }
 
     public boolean hasDraw() {
-        for (String position: board ) {
+
+        for (String position: board) {
             if(position.equals(""))
                 return false;
         }
+
         return true;
 
     }
