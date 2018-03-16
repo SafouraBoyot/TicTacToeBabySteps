@@ -64,6 +64,23 @@ public class BoardShould {
         board.place("X", 5);
 
         assertTrue(board.hasWinner());
+    }
 
+    @Test public void
+    check_winning_third_horizontal_conditions() throws IllegalSymbolException, IllegalPositionException {
+        board.place("X", 6);
+        board.place("X", 7);
+        board.place("X", 8);
+
+        assertTrue(board.hasWinner());
+    }
+
+    @Test public void
+    check_winning_first_vertical_conditions() throws IllegalSymbolException, IllegalPositionException {
+        board.place("X", 0);
+        board.place("X", 3);
+        board.place("X", 6);
+
+        assertTrue(board.hasWinner());
     }
 }
