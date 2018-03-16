@@ -1,6 +1,14 @@
 public class Board {
-    private int [] board  = new int [9];
+    private String [] board  = new String [9];
     public  int boardSize() {
         return board.length ;
+    }
+
+    public void place(String symbol, int position) {
+        board[position] = symbol;
+    }
+
+    public String[] board() {
+        return board;
     }
 }
