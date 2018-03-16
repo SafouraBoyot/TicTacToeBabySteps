@@ -17,13 +17,14 @@ public class Board {
         return board.size();
     }
 
-    public void place(String symbol, int position) throws IllegalSymbolException {
+    public void place(String symbol, int position) throws IllegalSymbolException, IllegalPositionException {
         this.symbol = symbol;
         if (hasNoSymbol() && symbol == "O")
             throw new IllegalSymbolException();
-
+        if(board.get(position)!="") throw new IllegalPositionException();
         board.add(position, symbol);
     }
+
 
     public List<String> board() {
         return board;

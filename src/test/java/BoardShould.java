@@ -12,7 +12,7 @@ public class BoardShould {
 
     @Test
     public void
-    place_a_symbol_on_the_board() throws IllegalSymbolException {
+    place_a_symbol_on_the_board() throws Exception {
         Board board = new Board();
 
         board.place("X", 0);
@@ -22,7 +22,7 @@ public class BoardShould {
 
     @Test(expected = IllegalSymbolException.class)
     public void
-    place_O_as_a_first_player() throws IllegalSymbolException {
+    place_O_as_a_first_player() throws Exception {
         Board board = new Board();
 
 
@@ -31,18 +31,25 @@ public class BoardShould {
 
 
     @Test public void
-    alternate_symbols() throws IllegalSymbolException {
+    alternate_symbols() throws Exception {
         Board board =new Board();
         board.place("X",1);
 
         assertEquals("O",board.nextPlayer());
     }
 
-    @Test(expected = IllegalPositionException.class) public void
-    not_allow_a_play_on_a_played_position() throws IllegalSymbolException {
+    @Test(expected = IllegalPositionException.class)
+    public void
+    not_allow_a_play_on_a_played_position() throws Exception {
         Board board = new Board();
 
         board.place("X", 0);
         board.place(board.nextPlayer(), 0);
+    }
+
+    @Test public void
+    check_winning_horizontal_conditions(){
+
+        assertEquals(WIN);
     }
 }
