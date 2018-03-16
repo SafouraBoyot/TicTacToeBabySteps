@@ -88,4 +88,15 @@ public class BoardShould {
 
         assertTrue(board.hasWinner());
     }
+
+    @Test
+    @Parameters({"0, 4 ,8", "2, 4, 6"})
+    public void
+    check_winning_diagonal_conditions(int one,int two,int three) throws IllegalSymbolException, IllegalPositionException {
+        board.place("X", one);
+        board.place("X", two);
+        board.place("X", three);
+        
+        assertTrue(board.hasWinner());
+    }
 }
