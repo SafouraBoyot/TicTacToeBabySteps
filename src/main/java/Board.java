@@ -6,7 +6,6 @@ public class Board {
     private List<String> board = new ArrayList<>();
 
     public Board() {
-
         for (int i = 0; i < 9; i++) {
             board.add("");
         }
@@ -18,15 +17,22 @@ public class Board {
 
     public void place(String symbol, int position) throws IllegalSymbolException {
 
-        for (String b : board) {
+        if (hasNoSymbol() && symbol == "O")
+            throw new IllegalSymbolException();
 
-
-        }
         board.add(position, symbol);
     }
 
     public List<String> board() {
         return board;
+    }
+
+    private boolean hasNoSymbol() {
+        for (String pos : board) {
+            if (pos != "") return false;
+        }
+
+        return true;
     }
 
     @Override
